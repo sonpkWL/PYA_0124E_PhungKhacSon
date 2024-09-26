@@ -1,0 +1,15 @@
+id,mail_template_id,approve_mail_template_id,refuse_mail_template_id,manager_stt,warehouse_stt,quanly_stt,nha_may_opt,create_uid,write_uid,name,description,manager_approval,manager_name,warehouse_approval,warehouse_name,quanly_approval,quanly_name,document_opt,contact_opt,date_opt,period_opt,item_opt,multi_items_opt,quantity_opt,amount_opt,reference_opt,payment_opt,location_opt,tt_opt,reason_wl_opt,warehouse_wl_opt,nhamay_wl_opt,product_category_opt,xuong_opt,ticket_properties,domain_type,active,mail_notification,activity_notification,NM_opt,type_approval,create_date,write_date,view_id,state_field_id,company_id,priority,model_id,state_field,approve_python_code,refuse_python_code,domain,request_tmpl,apply_for_model,is_configured,is_free_create,hide_button,is_global
+2,,,,1,0,0,,2,2,Đề xuất mua hàng,,Required,,,,,,Optional,None,None,None,None,Required,None,Required,None,None,None,None,None,None,None,None,Required,,,t,f,f,f,f,2024-07-18 06:42:48.107024,2024-07-18 06:42:48.107024,,,,100,,,record.button_approve(),record.button_cancel(),[],"<p>Hi,
+         
+        Please review my request. 
+        Click <a target='"__blank__'" href='"%7Brecord_url%7D'"> {record.display_name}</a> to view more !
+         
+        Thanks,
+        </p>",f,f,,f,t
+1,,,,1,0,0,,10,2,Đề xuất ra cổng,,Required,Người quản lý,,,,,Optional,None,None,Required,None,None,None,None,None,None,None,None,Required,None,None,None,None,,,t,t,t,f,f,2024-07-18 06:36:24.691448,2024-07-18 06:45:26.529068,,,,100,,,record.button_approve(),record.button_cancel(),[],"<p>Hi,
+         
+        Please review my request. 
+        Click <a target='"__blank__'" href='"%7Brecord_url%7D'"> {record.display_name}</a> to view more !
+         
+        Thanks,
+        </p>",f,f,,f,t

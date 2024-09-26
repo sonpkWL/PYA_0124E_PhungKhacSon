@@ -1,0 +1,2 @@
+id,approval_request_id,product_id,product_uom_id,bpsd,create_uid,write_uid,description,uom,comment,yckt,xuatxu,state,create_date,write_date,quantity
+1,2,19,1,,2,2,[E-COM09] Large Desk,,,,,Submitted,2024-07-18 07:32:57.59457,2024-07-18 07:32:57.59457,1

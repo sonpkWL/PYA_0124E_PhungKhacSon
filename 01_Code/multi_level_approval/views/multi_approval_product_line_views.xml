@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="multi_approval_product_line_view_tree" model="ir.ui.view">
+        <field name="name">multi.approval.product.line.view.tree</field>
+        <field name="model">multi.approval.product.line</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" string="Products">
+                <field name="approval_request_id" invisible="1"/>
+                <field name="product_id" options="{'no_create_edit': True, 'no_quick_create': True}"/>
+                <field name="description"/>
+                <field name="quantity"/>
+                <field name="uom"/>
+                <field name="product_uom_id" groups="uom.group_uom"
+                    options="{'no_create': True, 'no_open': True}" invisible="1"/>
+                <field name="product_uom_category_id" invisible="1"/>
+                <field name="yckt" optional="show"/>
+                <field name="xuatxu" optional="show"/>
+                <field name="bpsd" optional="show"/>
+                <field name="comment" optional="show"/>
+                <field name="approval_state" invisible="1"/>
+                <field name="is_pic" invisible="1"/>
+                <field name="state" widget="badge" decoration-info="state == 'Refused'"
+                       decoration-warning="state == 'Submitted'"
+                       decoration-success="state == 'Approved'"/>
+                <button string="Approve" name="action_approve_product" type="object"
+                    icon="fa-thumbs-up"
+                    attrs="{'invisible': ['|',('approval_state', '!=', 'Submitted'), ('is_pic', '=', False)]}"/>
+                <button string="Refuse" name="action_refuse_product" type="object"
+                    icon="fa-times"
+                    attrs="{'invisible': ['|',('approval_state', '!=', 'Submitted'), ('is_pic', '=', False)]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="approval_product_line_view_tree" model="ir.ui.view">
+        <field name="name">multi.approval.product.line.view.tree</field>
+        <field name="model">multi.approval.product.line</field>
+        <field name="priority">15</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" string="Products">
+<!--                <field name="company_id" invisible="1"/>-->
+                <field name="product_id" attrs="{'required': [('parent.has_product', '=', 'required')]}"/>
+                <field name="description"/>
+                <field name="quantity" attrs="{
+                    'column_invisible': [('parent.has_quantity', '=', 'no')],
+                    'required': [('parent.has_quantity', '=', 'required'), ('parent.request_status', '!=', 'new')],
+                    }"/>
+                <field name="product_uom_id" groups="uom.group_uom"
+                    options="{'no_create': True, 'no_open': True}"/>
+                <field name="product_uom_category_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="multi_approval_product_line_view_form" model="ir.ui.view">
+        <field name="name">multi.approval.product.line.view.form</field>
+        <field name="model">multi.approval.product.line</field>
+        <field name="arch" type="xml">
+            <form string="Products">
+                <sheet>
+                    <group>
+<!--                        <field name="company_id" invisible="1"/>-->
+                        <field name="product_id"/>
+                        <field name="description"/>
+                        <field name="quantity"/>
+                        <field name="product_uom_id" groups="uom.group_uom"/>
+                        <field name="product_uom_category_id" invisible="1"/>
+                        <field name="yckt" optional="show"/>
+                        <field name="xuatxu" optional="show"/>
+                        <field name="bpsd" optional="show"/>
+                        <field name="comment" optional="show"/>
+                        <field name="approval_state" invisible="1"/>
+                        <field name="is_pic" invisible="1"/>
+                        <field name="state" widget="badge" decoration-info="state == 'Refused'"
+                            decoration-warning="state == 'Submitted'"
+                            decoration-success="state == 'Approved'"/>
+                        <button string="Approve" name="action_approve_product" type="object"
+                            icon="fa-thumbs-up"
+                            attrs="{'invisible': ['|',('approval_state', '!=', 'Submitted'), ('is_pic', '=', False)]}"/>
+                        <button string="Refuse" name="action_refuse_product" type="object"
+                            icon="fa-times"
+                            attrs="{'invisible': ['|',('approval_state', '!=', 'Submitted'), ('is_pic', '=', False)]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

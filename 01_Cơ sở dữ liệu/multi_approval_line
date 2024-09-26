@@ -1,0 +1,3 @@
+id,message_main_attachment_id,user_id,sequence,approval_id,create_uid,write_uid,name,require_opt,state,deadline,refused_reason,create_date,write_date
+2,,9,2,2,2,2,Trần Văn Giang,Required,Draft,,,2024-07-18 07:32:58.180019,2024-07-18 07:32:58.180019
+1,,2,1,2,2,2,Mitchell Admin,Required,Waiting for Approval,,,2024-07-18 07:32:58.180019,2024-07-18 07:32:58.180019

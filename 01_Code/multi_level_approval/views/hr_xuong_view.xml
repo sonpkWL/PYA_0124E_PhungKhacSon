@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_xuong_view_tree" model="ir.ui.view">
+        <field name="name">hr.xuong.view.tree</field>
+        <field name="model">hr.xuong</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+    <record id="hr_xuong_view_form" model="ir.ui.view">
+        <field name="name">hr.xuong.view.form</field>
+        <field name="model">hr.xuong</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <group>
+                <field name="name" />
+            </group>
+            <group>
+                <field name="description" />
+            </group>
+        </field>
+    </record>
+    <record id="hr_xuong_tree_action" model="ir.actions.act_window">
+        <field name="name">Xưởng</field>
+        <field name="res_model">hr.xuong</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Xuong
+            </p>
+        </field>
+    </record>
+    
+    <menuitem
+        id="menu_hr_xuong_tree"
+        action="hr_xuong_tree_action"
+        name="Xưởng"
+        parent="hr.menu_config_employee"
+        sequence="13"
+        groups="hr.group_hr_user"/>
+</odoo>

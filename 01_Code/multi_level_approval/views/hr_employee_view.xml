@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='passport_id']" position="after">
+                <field name="MST"/>
+            </xpath>
+            <xpath expr="//field[@name='job_title']" position="after">
+                <div class="d-flex">
+                    <group>
+                        <field name="description" placeholder="Mã nhân viên">Mã nhân viên</field>
+                        <group>
+                            <field name="nha_may_id"/>
+                            <field name="khoi"/>
+                        </group>
+                    </group>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="after">
+                <field name="authority_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_partner_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.tree.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree" />
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="description"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_kanban_view_employees_inherit" model="ir.ui.view">
+        <field name="name">hr.kanban.employees.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees" />
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <field name="description"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_employee_filter_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.search.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" string="Employee" filter_domain="['|', '|', ('work_email', 'ilike', self), ('name', 'ilike', self), ('description', 'ilike', self)]"/>
+            </xpath>
+            <xpath expr="//filter[@name='group_department']" position="after">
+                <filter name="group_nha_may" string="Nhà máy" domain="[]" context="{'group_by': 'nha_may_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,2 @@
+id,stt,user_id_approval,sequence,type_id,product_category,create_uid,write_uid,name,require_opt,type_values,check_amount,create_date,write_date,gt1,gt2
+1,2,9,0,2,,2,2,,Required,,f,2024-07-18 06:42:48.107024,2024-07-18 06:42:48.107024,0,
